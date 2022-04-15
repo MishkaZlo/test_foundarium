@@ -17,9 +17,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/test', function () {
-    return view('test_view');
-});
+Route::get('/test', 'MainController@test');
 
 Route::post('/api/drivers/{id}', function ($id) {
     return 'ID: ' . $id;
