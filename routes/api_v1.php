@@ -17,3 +17,13 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::apiResources([
+    'cars' => CarController::class,
+]);
+
+Route::post('cars/{car_id}/set_driver', 'CarController@setDriver')
+    ->name('cars.setDriver');
+
+Route::post('cars/{car_id}/unset_driver', 'CarController@unsetDriver')
+    ->name('cars.unsetDriver');
